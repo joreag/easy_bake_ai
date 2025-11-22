@@ -1,0 +1,192 @@
+/* --- Global Reset & Theme --- */
+* {
+    box_sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #282c34; /* One Dark Background */
+    color: #abb2bf;            /* One Dark Text */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Main Dashboard Container --- */
+.dashboard {
+    width: 100%;
+    max-width: 1200px; /* Prevents it from getting too wide */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #61afef; /* Blue */
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #98c379; /* Green */
+    border-bottom: 1px solid #3e4451;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    text-align: center;
+    color: #e5c07b; /* Yellow */
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Panels --- */
+#config-panel, #dashboard-panel {
+    background-color: #21252b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3e4451;
+}
+
+#train-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* --- ADVANCED SECTION --- */
+#advanced-options {
+    background: #2c313a;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #3e4451;
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* --- BUTTON VARIANTS --- */
+.primary-btn {
+    background-color: #98c379;
+    color: #282c34;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.1s;
+}
+
+.primary-btn:hover {
+    background-color: #7db35b;
+    transform: scale(1.05);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #abb2bf;
+    border: 1px solid #3e4451;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.secondary-btn:hover {
+    border-color: #61afef;
+    color: #61afef;
+}
+
+
+/* --- Gauge Cluster (The Fix for the Shifting) --- */
+.gauge-cluster {
+    display: flex;
+    justify-content: center; /* Force center alignment */
+    align-items: center;
+    gap: 40px;               /* Space between gauges */
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #1d2026;     /* Slightly darker background for contrast */
+    border-radius: 8px;
+}
+
+.gauge-container {
+    width: 200px;     /* Fixed width prevents collapsing/shifting */
+    text-align: center;
+    position: relative;
+}
+
+canvas {
+    width: 100% !important; /* Force canvas to fit container */
+    height: auto !important;
+}
+
+/* --- Log Output --- */
+#log-output {
+    background-color: #000000;
+    color: #00ff00; /* Matrix Green */
+    font-family: 'Consolas', 'Courier New', monospace;
+    padding: 15px;
+    border-radius: 4px;
+    height: 300px;
+    overflow-y: auto; /* Scrollbar */
+    white-space: pre-wrap; /* Wrap long lines */
+    font-size: 0.85rem;
+    border: 1px solid #3e4451;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #282c34; 
+}
+::-webkit-scrollbar-thumb {
+    background: #3e4451; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5263; 
+}

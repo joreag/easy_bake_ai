@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCTS Easy Bake AI</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>HCTS Easy Bake AI - v1 Forge</h1>
+        
+        <div id="config-panel">
+            <h2>Configuration</h2>
+            <form id="train-form">
+                <!-- STANDARD SETTINGS -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="arch_type">Architecture:</label>
+                        <select id="arch_type">
+                        <option value="standard">Standard HCTS (v1)</option>
+                        <option value="pascal">Pascal-Guided (Model Z)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="curriculum_dir">Curriculum Path:</label>
+                        <input type="text" id="curriculum_dir" value="curriculum" required> 
+                    </div>
+                    <div class="input-group">
+                        <label for="output_name">Build Name:</label>
+                        <input type="text" id="output_name" value="my_first_forge" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="epochs">Epochs:</label>
+                        <input type="number" id="epochs" value="30" min="1">
+                    </div>
+                </div>
+
+                <!-- TOGGLE BUTTON -->
+                <div class="toggle-container">
+                    <button type="button" id="toggle-advanced" class="secondary-btn">▼ Advanced Settings</button>
+                </div>
+
+                <!-- ADVANCED SETTINGS (Hidden by default) -->
+                <div id="advanced-options" class="hidden">
+                    <div class="grid-inputs">
+                        <div class="input-group">
+                            <label for="batch_size">Batch Size:</label>
+                            <input type="number" id="batch_size" value="32">
+                        </div>
+                        <div class="input-group">
+                            <label for="learning_rate">Learning Rate:</label>
+                            <input type="number" id="learning_rate" value="0.0001" step="0.00001">
+                        </div>
+                        <div class="input-group">
+                            <label for="max_seq_length">Max Seq Length:</label>
+                            <input type="number" id="max_seq_length" value="256">
+                        </div>
+                        <div class="input-group">
+                            <label for="d_model">Model Dim (d_model):</label>
+                            <input type="number" id="d_model" value="512">
+                        </div>
+                        <div class="input-group">
+                            <label for="nhead">Attn Heads (nhead):</label>
+                            <input type="number" id="nhead" value="8">
+                        </div>
+                        <div class="input-group">
+                            <label for="num_encoder_layers">Encoder Layers:</label>
+                            <input type="number" id="num_encoder_layers" value="6">
+                        </div>
+                        <div class="input-group">
+                            <label for="num_decoder_layers">Decoder Layers:</label>
+                            <input type="number" id="num_decoder_layers" value="6">
+                        </div>
+                        <div class="input-group">
+                            <label for="dim_feedforward">Feedforward Dim:</label>
+                            <input type="number" id="dim_feedforward" value="2048">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="submit-container">
+                    <button type="submit" class="primary-btn">Forge AI</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="dashboard-panel">
+            <h2>Build Dashboard</h2>
+            <div class="gauge-cluster">
+                <div class="gauge-container main-gauge"><h3>Training Loss</h3><canvas id="loss-gauge"></canvas></div>
+                <div class="gauge-container"><h3>Build Speed (it/s)</h3><canvas id="speed-gauge"></canvas></div>
+            </div>
+            <pre id="log-output">Welcome! Configure your build and click "Forge AI" to begin.</pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+    <script src="/js/gauges.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
