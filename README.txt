@@ -78,6 +78,20 @@ activate the environment first:
    Clean raw SOTA datasets (BoolQ, PIQA, GSM8K) into Cognitive Nodes.
    Command: python curriculum_reformatter.py --input-file raw_data.jsonl --output-file curriculum/clean.jsonl
 
+4. THE DOJO (Active Reinforcement Laboratory)
+   A "Glass Box" training tool that quizzes your model to ensure mastery.
+   - Mechanism: The Dojo runs through a dataset like a deck of flashcards. 
+     If the AI answers incorrectly, the Dojo pauses and performs a "Cognitive Jolt" 
+     (immediate remedial training) on that specific fact until the AI gets it right.
+   - Best For: Fixing hallucinations, reinforcing weak concepts, or fine-tuning 
+     on difficult data without re-running the entire build process.
+   
+   Standard Command:
+   python toolbox/dojo.py --build my_first_forge
+
+   Advanced Command (Target specific weak points):
+   python toolbox/dojo.py --build my_first_forge --dataset curriculum/hard_questions.jsonl   
+
 -------------------------------------------------------------------------------
 ABOUT THE ARCHITECTURE
 -------------------------------------------------------------------------------
