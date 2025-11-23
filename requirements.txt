@@ -1,9 +1,6 @@
 Flask
 Flask-Cors
 Flask-SocketIO
-eventletFlask
-Flask-Cors
-Flask-SocketIO
 eventlet
 requests
 tqdm
