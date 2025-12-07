@@ -92,6 +92,22 @@ activate the environment first:
    Advanced Command (Target specific weak points):
    python toolbox/dojo.py --build my_first_forge --dataset curriculum/hard_questions.jsonl   
 
+5. THE INTERACTIVE DOJO (Interactive Reinforcement)
+   A real-time "Teaching Mode" where you can chat with your AI and correct 
+   it on the fly. This uses "One-Shot Reinforcement" to update the model weights
+   instantly based on your feedback.
+
+   How it works:
+   1. Chat normally. If the AI hallucinates or answers incorrectly...
+   2. Type 'teach'.
+   3. Enter the correct answer.
+   4. Watch the AI re-train itself on that specific fact in seconds.
+
+   Command: python toolbox/interactive_dojo_v1.py --build my_first_forge
+
+   Use Case: "Potty Training" your AI, fixing logic errors, or teaching it
+   facts about yourself that weren't in the training data.   
+
 -------------------------------------------------------------------------------
 ABOUT THE ARCHITECTURE
 -------------------------------------------------------------------------------
